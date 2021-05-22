@@ -20,25 +20,20 @@ const DataArea = ( => {
     ]
   });
 
-  
-})
 
-
-
-
-handleSort = heading => {
-  if (this.state.order === "descend") {
-    this.setState({
+const handleSort = heading => {
+  if (developerState.order === "descend") {
+    setDeveloperState({
       order: "ascend"
     })
   } else {
-    this.setState({
+    setDeveloperState({
       order: "descend"
     })
   }
 
   const compareFnc = (a, b) => {
-    if (this.state.order === "ascend") {
+    if (developerState.order === "ascend") {
       // account for missing values
       if (a[heading] === undefined) {
         return 1;
@@ -67,11 +62,11 @@ handleSort = heading => {
     }
 
   }
-  const sortedUsers = this.state.filteredUsers.sort(compareFnc);
-  this.setState({ filteredUsers: sortedUsers });
+  const sortedUsers = developerState.filteredUsers.sort(compareFnc);
+  setDeveloperState({ ...developerState, filteredUsers: sortedUsers });
 }
 
-handleSearchChange = event => {
+const handleSearchChange = event => {
   console.log(event.target.value);
   const filter = event.target.value;
   const filteredList = this.state.users.filter(item => {
