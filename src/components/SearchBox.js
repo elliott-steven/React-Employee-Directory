@@ -2,9 +2,11 @@ import React, {useContext} from "react";
 import "../styles/SearchBox.css";
 import DataAreaContext from "../utils/DataAreaContext"
 
-const 
+const SearchBox = () => {
 
-function SearchBox({ handleSearchChange }) {
+  const context = useContext(DataAreaContext);
+
+
   return (
     <div className="searchbox">
       <form className="form-inline">
@@ -13,7 +15,7 @@ function SearchBox({ handleSearchChange }) {
           type="search"
           placeholder="Search"
           aria-label="Search"
-          onChange={e => handleSearchChange(e)}
+          onChange={e => context.handleSearchChange(e)}
         />
       </form>
     </div>
