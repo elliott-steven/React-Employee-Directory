@@ -1,14 +1,12 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import DataBody from "./DataBody";
 import "../styles/DataTable.css";
 import DataAreaContext from "../utils/DataAreaContext"
 
 const DataTable = () => {
 
-  
-}
+  const context = useContext(DataAreaContext);
 
-function DataTable({ headings, users, handleSort }) {
   return (
     <div className="datatable mt-5">
       <table
@@ -17,14 +15,14 @@ function DataTable({ headings, users, handleSort }) {
       >
         <thead>
           <tr>
-            {headings.map(({ name, width }) => {
+            {context.developerState.headings.map(({ name, width }) => {
               return (
                 <th
                   className="col"
                   key={name}
                   style={{ width }}
                   onClick={() => {
-                    handleSort(name.toLowerCase());
+                    context.handleSort(name.toLowerCase());
                   }}
                 >
                   {name}
@@ -35,7 +33,7 @@ function DataTable({ headings, users, handleSort }) {
           </tr>
         </thead>
 
-        <DataBody users={users} />
+        <DataBody />
       </table>
     </div>
   );

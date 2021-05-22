@@ -1,5 +1,8 @@
-import React from "react";
+import React, {useContext} from "react";
 import "../styles/SearchBox.css";
+import DataAreaContext from "../utils/DataAreaContext"
+
+const 
 
 function SearchBox({ handleSearchChange }) {
   return (
