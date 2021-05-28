@@ -88,7 +88,7 @@ const DataArea = () => {
         filteredUsers: results.data.results
       });
     });
-  }, [developerState]);
+  }, []);
 
   return (
     <DataAreaContext.Provider
